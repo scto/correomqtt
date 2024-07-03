@@ -1,25 +1,10 @@
 package org.correomqtt.di;
 
-import io.github.classgraph.AnnotationClassRef;
-import io.github.classgraph.AnnotationInfo;
-import io.github.classgraph.ClassGraph;
-import io.github.classgraph.ClassInfo;
-import io.github.classgraph.ScanResult;
+import io.github.classgraph.*;
 import lombok.extern.slf4j.Slf4j;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.lang.reflect.*;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -178,7 +163,7 @@ public class SoyDi {
         }
         try {
             final T instance;
-            if (Factory.class.isAssignableFrom(clazz) || clazz.getName().startsWith("org.correomqtt.di")) {
+            if (Factory.class.isAssignableFrom(clazz) || clazz.getName().startsWith("org.correomqtt.di.")) {
                 instance = getNewInstance(clazz, chain, beanInfo);
             } else {
                 instance = getInstanceViaFactory(clazz);

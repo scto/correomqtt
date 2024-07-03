@@ -1,0 +1,5 @@
+# DO NOT RENAME THIS PACKAGE
+
+There is a check in the Soy injection which checks whether the package name has `com.correomqtt.di.`.
+This is due to direct injection of internal classes, however, external classes are injected via a factory. Thus,
+the test package di tests the direct instantiation and ditest tests the factory instantiation.

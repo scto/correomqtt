@@ -37,6 +37,7 @@
 
     <modules>
         <module>di</module>
+        <module>ditest</module>
         <module>core</module>
         <module>gui</module>
         <module>plugins</module>
